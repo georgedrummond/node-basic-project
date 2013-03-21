@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+require('coffee-script');
+var app = require('../app/app');
+
+console.log(app.routes);
