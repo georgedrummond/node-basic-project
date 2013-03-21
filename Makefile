@@ -1,4 +1,6 @@
-test:
-	./node_modules/.bin/mocha #--reporter list
+test: server
+	./node_modules/.bin/mocha
+	killall node
 
-.PHONY: test
+server:
+	./bin/server > /dev/null 2>&1 &
