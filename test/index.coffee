@@ -1,13 +1,26 @@
 require('mocha')
 
-app = require('../app/app')
+Browser = require('zombie')
 assert = require('assert')
-request = require('supertest')
 
 describe 'for logged in user', ->
-  it 'should allow authentication', (done) ->
-    request(app)
-      .get('/')
-      .expect('Content-Type', /html/)
-      .expect('Content-Length', '170')
-      .expect(200, done)
+  before (done) ->
+    @browser = new Browser()
+    @browser
+      .visit('http://0.0.0.0:3000/')
+      .then(done, done)
+
+  it 'path name is root', (done) ->
+    assert.equal @browser.location.pathname, '/'
+    done()
+
+  it '200 OK', (done) ->
+    assert.ok @browser.statusCode
+    done()
+
+  it 'show welcome text', (done) ->
+    assert.equal @browser.text('#welcome'), 'Welcome to Express'
+    done()
+
+  describe 'abc', (done) ->
+    it 'something', (done) -> done()

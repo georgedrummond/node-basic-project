@@ -7,7 +7,11 @@
   },
   "dependencies": {
     "express": "3.1.0",
-    "jade": "*",
-    "supertest": "latest"
+    "jade": "*"
+  },
+  "devDependencies": {
+    "supertest": "latest",
+    "mocha": "latest",
+    "zombie": "latest"
   }
 }
