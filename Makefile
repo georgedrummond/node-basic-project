@@ -14,5 +14,5 @@ server:
 	./bin/server > /dev/null 2>&1 &
 
 # Build binary
-build:
-	tar -zcvf $(APPNAME)-$(VERSION)-$(REVISION).tar.gz ./app ./node_modules ./bin
+binary:
+	tar -zcvf build/$(APPNAME)-$(VERSION)-$(REVISION).tar.gz ./app ./node_modules ./bin
